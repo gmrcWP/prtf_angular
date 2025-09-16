@@ -5,6 +5,7 @@ import { Navbar } from './components/navbar/navbar';
 import { Hero } from './components/hero/hero';
 import { About } from './components/about/about';
 import { Education } from './components/education/education';
+import { Skills } from './components/skills/skills';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { Education } from './components/education/education';
     Hero,
     About,
     Education,
+    Skills,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
