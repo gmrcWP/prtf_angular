@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Navbar } from './components/navbar/navbar';
 import { Hero } from './components/hero/hero';
+import { About } from './components/about/about';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { Hero } from './components/hero/hero';
     CommonModule,
     Navbar,
     Hero,
+    About,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
