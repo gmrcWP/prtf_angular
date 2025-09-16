@@ -1,16 +1,39 @@
 <section id="skills" class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Skills</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Habilidades</h2>
       <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       <div *ngFor="let skill of skills"
-        class="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:border-blue-300">
-        <div class="mb-4" [innerHTML]="skill.icon"></div>
-        <h3 class="font-semibold text-gray-800 mb-2">{{ skill.name }}</h3>
-        <p class="text-sm text-gray-600">{{ skill.level }}</p>
+        class="skill-card bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+        [style.border-color]="''" (mouseenter)="onCardHover($event, skill.color)" (mouseleave)="onCardLeave($event)">
+
+        <!-- Centered Image -->
+        <div class="flex justify-center items-center mb-4">
+          <img class="w-20 h-20 object-contain" [src]="skill.icon" [alt]="skill.name + ' icon'">
+        </div>
+
+        <!-- Skill Name -->
+        <h3 class="font-semibold text-gray-800 mb-3">{{ skill.name }}</h3>
+
+        <!-- Progress Bar Container -->
+        <div class="mb-2">
+          <!-- Progress Bar Background -->
+          <div class="bg-gray-200 rounded-full h-3 overflow-hidden">
+            <!-- Progress Bar Fill -->
+            <div class="h-full rounded-full transition-all duration-1000 ease-out progress-bar-fill"
+              [style.width.%]="skill.level" [style.background-color]="skill.color">
+            </div>
+          </div>
+
+          <!-- Percentage Text -->
+          <div class="flex justify-between items-center mt-2">
+            <span class="text-xs text-gray-500">Competencia</span>
+            <span class="text-sm font-medium text-gray-700">{{ skill.level }}%</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
